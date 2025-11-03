@@ -478,8 +478,24 @@
     function getClientId(){ try{ let id=localStorage.getItem('rifa_client_id'); if(!id){ id='c_'+Math.random().toString(36).slice(2,10); localStorage.setItem('rifa_client_id',id);} return id; }catch(e){ return 'client'; } }
 
     // CSV
-    el.btnExport.onclick=()=>{ const rows=[["numero","alias","uid"],...Object.entries(state.numbers).filter(([n,v])=>v).map(([n,v])=>[n,v.alias,v.uid||'admin'])]; const csv=rows.map(r=>r.map(x=>`"${(x+"").replaceAll('"','\"')}"`).join(',')).join('\n'); const blob=new Blob([csv],{type:'text/csv;charset=utf-8;'}); const url=URL.createObjectURL(blob); const a=document.createElement('a'); a.href=url; a.download='rifa.csv'; a.click(); URL.revokeObjectURL(url); };
-
+    el.btnExport.onclick=()=>{
+    // 1. Quitar 'uid' de la cabecera
+    const rows=[
+        ["numero", "alias"],
+        ...Object.entries(state.numbers)
+            .filter(([n,v])=>v)
+            .map(([n,v])=>[n,v.alias]) // 2. Quitar v.uid||'admin'
+    ];
+    
+    const csv=rows.map(r=>r.map(x=>`"${(x+"").replaceAll('"','\"')}"`).join(',')).join('\n'); 
+    const blob=new Blob([csv],{type:'text/csv;charset=utf-8;'}); 
+    const url=URL.createObjectURL(blob); 
+    const a=document.createElement('a'); 
+    a.href=url; 
+    a.download='rifa.csv'; 
+    a.click(); 
+    URL.revokeObjectURL(url); 
+};
     // Search
     el.search.addEventListener('input',()=>{renderGrid();renderList();});
 
