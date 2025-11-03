@@ -142,182 +142,176 @@
 
 
 
-          <style>
-            :root {
-              --bg: #0b1020;
-              --card: #0f1724;
-              --muted: #9aa9c8;
-              --accent: #2bb3ff;
-              --accent2: #3ad1a1
-            }
-          
-            body {
-              margin: 0;
-              font-family: Inter, system-ui, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-              background: var(--bg);
-              color: #e6ecff
-            }
-          
-            .wrap {
-              max-width: 980px;
-              margin: 28px auto;
-              padding: 20px
-            }
-          
-            .header {
-              display: flex;
-              align-items: center;
-              justify-content: space-between;
-              gap: 12px
-            }
-          
-            .brand {
-              display: flex;
-              gap: 12px;
-              align-items: center
-            }
-          
-            .logo {
-              width: 46px;
-              height: 46px;
-              border-radius: 10px;
-              background: linear-gradient(90deg, var(--accent), var(--accent2));
-              display: inline-flex;
-              align-items: center;
-              justify-content: center;
-              color: #04121c;
-              font-weight: 800
-            }
-          
-            a.bases-link {
-              background: transparent;
-              border: 1px solid rgba(255, 255, 255, .12);
-              padding: 10px 14px;
-              border-radius: 12px;
-              color: #e6ecff;
-              text-decoration: none;
-              font-weight: 700
-            }
-          
-            .card {
-              background: linear-gradient(180deg, rgba(18, 26, 51, .95), rgba(10, 15, 30, .95));
-              border: 1px solid rgba(255, 255, 255, .06);
-              border-radius: 12px;
-              padding: 18px;
-              margin-top: 18px
-            }
-          
-            h1 {
-              margin: 0 0 6px;
-              font-size: 20px
-            }
-          
-            .tiny {
-              color: var(--muted);
-              font-size: 13px
-            }
-          
-            /* Modal */
-            .modal-backdrop {
-              position: fixed;
-              inset: 0;
-              background: rgba(2, 6, 23, .7);
-              display: none;
-              align-items: center;
-              justify-content: center;
-              padding: 20px;
-              z-index: 999
-            }
-          
-            .modal {
-              width: 100%;
-              max-width: 880px;
-              background: #071025;
-              border-radius: 12px;
-              padding: 18px;
-              border: 1px solid rgba(255, 255, 255, .06);
-              max-height: 90vh;
-              overflow: auto
-            }
-          
-            .modal .close {
-              float: right;
-              background: transparent;
-              border: 1px solid rgba(255, 255, 255, .08);
-              padding: 6px 10px;
-              border-radius: 10px;
-              color: #e6ecff;
-              cursor: pointer
-            }
-          
-            .section {
-              margin: 12px 0
-            }
-          
-            .muted {
-              color: var(--muted)
-            }
-          
-            .pill {
-              display: inline-block;
-              padding: 6px 10px;
-              border-radius: 999px;
-              background: rgba(255, 255, 255, .03);
-              border: 1px solid rgba(255, 255, 255, .06);
-              font-weight: 700
-            }
-          
-            ul {
-              padding-left: 18px
-            }
-          
-            @media (max-width:600px) {
-              .brand span {
-                display: none
-              }
-            }
-          </style>
-          
-          
-          <div class="card">
-            <h1>Información rápida</h1>
-            <p class="muted">La rifa se cerrará cuando se hayan vendido y confirmado los 100 números. El sorteo se realizará a
-              continuación, comenzando por el 4° premio y finalizando con el 1° premio. Haz clic en <strong>"Bases de la
-                rifa”</strong> para ver las reglas completas.</p>
-            <div style="margin-top:12px;display:flex;gap:12px;flex-wrap:wrap">
-              <div class="pill">Números: 1–100</div>
-              <div class="pill">Estado pendiente: amarillo</div>
-              <div class="pill">Estado aprobado: rojo</div>
-            </div>
-          </div>
-          
-          
-          <!-- Modal con las bases (contenido completo) -->
-          <div class="modal-backdrop" id="modal">
-            <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-              <button class="close" id="close">Cerrar ✕</button>
-              <h2 id="modalTitle">Bases de la Rifa — Airjoelectronicos</h2>
-          
-          
-              <div class="section">
-                <strong>Organiza:</strong> Airjoelectronicos — <span class="tiny">Rifa 100 Números</span><br>
-                <span class="tiny">Fecha de inicio: (indicar) • Cierre: cuando se vendan los 100 números • Sorteo: inmediatamente
-                  después del último número vendido.</span>
-              </div>
-          
-          
-              <div class="section">
-                <h3>1. Objeto</h3>
-                <p>Esta rifa ofrece a los participantes la oportunidad de ganar uno de los premios publicados. La venta se realiza
-                  por número (1–100). Cada número puede ser solicitado y quedará pendiente hasta la aprobación del administrador.
-                </p>
-              </div>
-          
-          
-              <div class="section">
-                <h3>2. Cómo participar — selección y estado del número</h3>
-                <ol>
-                  </script>
+          <!-- Tarjeta principal con enlace a las Bases -->
+<div class="card">
+  <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px">
+    <div style="flex:1">
+      <h1>Información rápida</h1>
+      <p class="muted">
+        La rifa se cerrará cuando se hayan vendido y confirmado los 100 números. El sorteo se realizará a continuación,
+        comenzando por el 4° premio y finalizando con el 1° premio.
+      </p>
+      <p class="tiny">Haz clic en <strong>"Bases de la rifa"</strong> para ver las reglas completas.</p>
+    </div>
+
+    <!-- Enlace para abrir las bases -->
+    <div style="display:flex;flex-direction:column;gap:8px;align-items:flex-end">
+      <a href="#" id="openBases" class="bases-link" aria-haspopup="dialog" aria-controls="modal">Bases de la rifa</a>
+      <div class="tiny" style="text-align:right">Compartir enlace para ver las bases.</div>
+    </div>
+  </div>
+
+  <div style="margin-top:12px;display:flex;gap:12px;flex-wrap:wrap">
+    <div class="pill">Números: 1–100</div>
+    <div class="pill">Estado pendiente: amarillo</div>
+    <div class="pill">Estado aprobado: rojo</div>
+  </div>
+</div>
+
+<!-- Modal con las bases (contenido completo) -->
+<div class="modal-backdrop" id="modal" aria-hidden="true">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" tabindex="-1">
+    <button class="modal-close close" id="close" aria-label="Cerrar">Cerrar ✕</button>
+    <h2 id="modalTitle">Bases de la Rifa — Airjoelectronicos</h2>
+
+    <div class="section">
+      <strong>Organiza:</strong> Airjoelectronicos — <span class="tiny">Rifa 100 Números</span><br>
+      <span class="tiny">Fecha de inicio: (indicar) • Cierre: cuando se vendan los 100 números • Sorteo: inmediatamente
+        después del último número vendido.</span>
+    </div>
+
+    <div class="section">
+      <h3>1. Objeto</h3>
+      <p>Esta rifa ofrece a los participantes la oportunidad de ganar uno de los premios publicados. La venta se realiza por
+        número (1–100). Cada número puede ser solicitado y quedará pendiente hasta la aprobación del administrador.</p>
+    </div>
+
+    <div class="section">
+      <h3>2. Cómo participar — selección y estado del número</h3>
+      <ol>
+        <li>El participante escribe un <strong>alias</strong> visible y selecciona el número en la cuadrícula.</li>
+        <li>Al enviar la solicitud, el número queda marcado como <strong>pendiente</strong> y aparece en la interfaz con
+          <strong>color amarillo</strong>.</li>
+        <li>La solicitud queda en la sección “Solicitudes pendientes” para que el administrador la revise.</li>
+        <li>Si el admin aprueba la solicitud, el número pasa a <strong>confirmado</strong> y se muestra con <strong>color rojo</strong>
+          (reservado).</li>
+        <li>Si la solicitud es rechazada, el número vuelve a estar libre.</li>
+      </ol>
+      <p class="muted">Nota: Con Firebase habilitado, las solicitudes y aprobaciones se visualizan en tiempo real.</p>
+    </div>
+
+    <div class="section">
+      <h3>3. Límite y compra</h3>
+      <p>Total de números: <strong>100</strong>. Un número = una participación. Un mismo usuario puede solicitar más de un número,
+        sujeto a aprobación.</p>
+      <p>La reserva solo se considera final cuando el administrador aprueba la solicitud (estado rojo).</p>
+    </div>
+
+    <div class="section">
+      <h3>4. Orden y mecanismo del sorteo</h3>
+      <p>El sorteo se realizará <strong>cuando los 100 números estén vendidos y confirmados</strong>. La mecánica es la
+        siguiente (mecánica “primeros 3 al agua”):</p>
+      <ul>
+        <li>El sorteo comenzará por el <strong>4° premio</strong> y terminará en el <strong>1° premio</strong>.</li>
+        <li>Para cada premio se extraen <strong>4 números</strong> al azar de los aún no premiados.</li>
+        <li>Los <strong>primeros 3</strong> números extraídos quedan "al agua" (eliminados del sorteo, sin premio).</li>
+        <li>El <strong>4° número</strong> extraído será el ganador del premio actual.</li>
+        <li>Los números "al agua" quedan fuera del sorteo para los siguientes premios.</li>
+      </ul>
+      <p class="muted">Ejemplo: Para el 4° premio se extraen 4 números → 3 primeros descartados → 4° es ganador. Repetir para
+        el 3°, 2° y 1° premio.</p>
+    </div>
+
+    <div class="section">
+      <h3>5. Notificación y entrega</h3>
+      <p>Los ganadores se publicarán en la plataforma y canales oficiales. Para reclamar, el ganador debe acreditar identidad
+        y alias/número.</p>
+      <p>Plazos y modalidad de entrega serán comunicados por el organizador. Si aplica envío, se informarán costos y condiciones.</p>
+    </div>
+
+    <div class="section">
+      <h3>6. Condiciones de pago y validez</h3>
+      <p>La reserva indica intención de compra. La confirmación final puede requerir pago o verificación por el admin. Si no se
+        completa (si aplica), el admin puede liberar el número.</p>
+    </div>
+
+    <div class="section">
+      <h3>7. Protección de datos y transparencia</h3>
+      <p>Se publicará un listado final de números vendidos (alias parcial). Los datos personales solo se usarán para gestión y
+        entrega de premios y no se compartirán con terceros sin consentimiento.</p>
+    </div>
+
+    <div class="section">
+      <h3>8. Reclamaciones</h3>
+      <p>Reclamos se recibirán por correo/formulario dentro de X días tras publicación de resultados. El fallo del organizador
+        será definitivo.</p>
+    </div>
+
+    <div class="section">
+      <h3>9. Responsabilidades</h3>
+      <p>La plataforma no se responsabiliza por errores de visualización causados por caracteres especiales o fallas del dispositivo
+        del usuario. Verifica alias y número antes de enviar.</p>
+    </div>
+
+    <div class="section">
+      <h3>10. Funciones del admin</h3>
+      <p>Solo el admin puede aprobar/rechazar solicitudes (PIN). El admin puede exportar CSV, liberar números y actualizar premios.</p>
+    </div>
+
+    <div class="section">
+      <h3>11. Aceptación</h3>
+      <p>Al participar, el usuario acepta estas bases en su totalidad.</p>
+    </div>
+
+    <div style="margin-top:18px;display:flex;gap:8px;flex-wrap:wrap;align-items:center;justify-content:flex-end">
+      <button id="printBtn" class="modal-print close">Imprimir / Guardar</button>
+    </div>
+  </div>
+</div>
+
+<!-- JavaScript: abre/cierra modal y accesibilidad -->
+<script>
+  (function(){
+    const open = document.getElementById('openBases');
+    const modalBackdrop = document.getElementById('modal');
+    const modal = modalBackdrop?.querySelector('.modal');
+    const closeBtn = document.getElementById('close');
+    const printBtn = document.getElementById('printBtn');
+
+    function openModal(e){
+      if(e) e.preventDefault();
+      modalBackdrop.style.display = 'flex';
+      modalBackdrop.setAttribute('aria-hidden','false');
+      // focus en el modal para accesibilidad
+      setTimeout(()=> { modal.focus(); }, 50);
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal(){
+      modalBackdrop.style.display = 'none';
+      modalBackdrop.setAttribute('aria-hidden','true');
+      document.body.style.overflow = 'auto';
+      // devolver foco al enlace
+      open.focus();
+    }
+
+    open.addEventListener('click', openModal);
+    closeBtn.addEventListener('click', closeModal);
+
+    // cerrar con clic en backdrop
+    modalBackdrop.addEventListener('click', (ev)=> {
+      if(ev.target === modalBackdrop) closeModal();
+    });
+
+    // cerrar con tecla Esc
+    document.addEventListener('keydown', (ev)=> {
+      if(ev.key === 'Escape' && modalBackdrop.style.display === 'flex') closeModal();
+    });
+
+    printBtn.addEventListener('click', ()=> window.print());
+  })();
+</script>
+
 
 
 
