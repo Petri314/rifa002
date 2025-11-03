@@ -129,9 +129,108 @@
             <td data-label="Etiqueta">Email</td>
             <td data-label="Valor">fulminante7@gmail.com</td>
         </tr>
+      <tr>
+            <td data-label="Etiqueta">Precio</td>
+            <td data-label="Valor">$3.000</td>
+        </tr>
     </tbody>
 </table>
           
+          <div class="divider"></div>
+
+
+
+
+
+          <style>
+:root{--bg:#0b1020;--card:#0f1724;--muted:#9aa9c8;--accent:#2bb3ff;--accent2:#3ad1a1}
+body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:#e6ecff}
+.wrap{max-width:980px;margin:28px auto;padding:20px}
+.header{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.brand{display:flex;gap:12px;align-items:center}
+.logo{width:46px;height:46px;border-radius:10px;background:linear-gradient(90deg,var(--accent),var(--accent2));display:inline-flex;align-items:center;justify-content:center;color:#04121c;font-weight:800}
+a.bases-link{background:transparent;border:1px solid rgba(255,255,255,.12);padding:10px 14px;border-radius:12px;color:#e6ecff;text-decoration:none;font-weight:700}
+.card{background:linear-gradient(180deg,rgba(18,26,51,.95),rgba(10,15,30,.95));border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:18px;margin-top:18px}
+h1{margin:0 0 6px;font-size:20px}
+.tiny{color:var(--muted);font-size:13px}
+/* Modal */
+.modal-backdrop{position:fixed;inset:0;background:rgba(2,6,23,.7);display:none;align-items:center;justify-content:center;padding:20px;z-index:999}
+.modal{width:100%;max-width:880px;background:#071025;border-radius:12px;padding:18px;border:1px solid rgba(255,255,255,.06);max-height:90vh;overflow:auto}
+.modal .close{float:right;background:transparent;border:1px solid rgba(255,255,255,.08);padding:6px 10px;border-radius:10px;color:#e6ecff;cursor:pointer}
+.section{margin:12px 0}
+.muted{color:var(--muted)}
+.pill{display:inline-block;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);font-weight:700}
+ul{padding-left:18px}
+@media (max-width:600px){.brand span{display:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="header">
+<div class="brand">
+<div class="logo">AR</div>
+<div>
+<div style="font-weight:800">Airjoelectronicos — Rifa 100 Números</div>
+<div class="tiny">Organizador: Airjoelectronicos</div>
+</div>
+</div>
+<div>
+<a href="#" id="openBases" class="bases-link">Bases de la rifa</a>
+</div>
+</div>
+
+
+<div class="card">
+<h1>Información rápida</h1>
+<p class="muted">La rifa se cerrará cuando se hayan vendido y confirmado los 100 números. El sorteo se realizará a continuación, comenzando por el 4° premio y finalizando con el 1° premio. Haz clic en <strong>„Bases de la rifa”</strong> para ver las reglas completas.</p>
+<div style="margin-top:12px;display:flex;gap:12px;flex-wrap:wrap">
+<div class="pill">Números: 1–100</div>
+<div class="pill">Estado pendiente: amarillo</div>
+<div class="pill">Estado aprobado: rojo</div>
+</div>
+</div>
+
+
+<div class="card" style="margin-top:18px">
+<h2 style="margin:0 0 8px">Acceso directo</h2>
+<p class="tiny">Comparte o coloca el enlace a esta página y tus usuarios podrán abrir las Bases desde el botón <strong>„Bases de la rifa”</strong>.</p>
+<p class="tiny">Si quieres que el contenido se abra en nueva pestaña, copia la URL del archivo HTML y compártela.</p>
+</div>
+</div>
+
+
+<!-- Modal con las bases (contenido completo) -->
+<div class="modal-backdrop" id="modal">
+<div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+<button class="close" id="close">Cerrar ✕</button>
+<h2 id="modalTitle">Bases de la Rifa — Airjoelectronicos</h2>
+
+
+<div class="section">
+<strong>Organiza:</strong> Airjoelectronicos — <span class="tiny">Rifa 100 Números</span><br>
+<span class="tiny">Fecha de inicio: (indicar) • Cierre: cuando se vendan los 100 números • Sorteo: inmediatamente después del último número vendido.</span>
+</div>
+
+
+<div class="section">
+<h3>1. Objeto</h3>
+<p>Esta rifa ofrece a los participantes la oportunidad de ganar uno de los premios publicados. La venta se realiza por número (1–100). Cada número puede ser solicitado y quedará pendiente hasta la aprobación del administrador.</p>
+</div>
+
+
+<div class="section">
+<h3>2. Cómo participar — selección y estado del número</h3>
+<ol>
+</script>
+
+
+
+
+
+
+
+          
+
 
           <div class="divider"></div>
           <details id="syncSettings" style="display:none"><summary class="tiny">⚙️ Ajustes de sincronización (Firebase)</summary>
