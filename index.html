@@ -145,7 +145,14 @@
     function load(){try{const x=localStorage.getItem('rifa_approval_v1');return x?JSON.parse(x):null}catch(e){return null}}
     function save(){try{localStorage.setItem('rifa_approval_v1',JSON.stringify({numbers:state.numbers,prizes:state.prizes,requests:state.requests}))}catch(e){}}
 
-    function apply(snap,{silent}={}){state.numbers=snap.numbers||{};state.prizes=snap.prizes||{p1:"",p2:"",p3:""};state.requests=snap.requests||{};render(); if(!silent && state.backend==='local') save();}
+    function apply(snap,{silent}={}) {
+  state.numbers = snap && snap.numbers ? snap.numbers : {};
+  // si snap.prizes no viene, usa defaults con p4 incluido
+  state.prizes = snap && snap.prizes ? snap.prizes : { p1: "", p2: "", p3: "", p4: "" };
+  state.requests = snap && snap.requests ? snap.requests : {};
+  render();
+  if (!silent && state.backend === 'local') save();
+}
 
     // ===== Arranque con restauración de modo admin y Firebase auto =====
     function init(){
@@ -177,7 +184,19 @@
     }
 
     // ===== Render =====
-    function render(){ renderCounts(); renderGrid(); renderList(); renderReqs(); el.p1.value=state.prizes.p1||''; el.p2.value=state.prizes.p2||''; el.p3.value=state.prizes.p3||''; setTitleCount(); toggleAdminSections(); }
+    function render(){
+  renderCounts();
+  renderGrid();
+  renderList();
+  renderReqs();
+  el.p1.value = state.prizes.p1 || '';
+  el.p2.value = state.prizes.p2 || '';
+  el.p3.value = state.prizes.p3 || '';
+  el.p4.value = state.prizes.p4 || ''; // <-- agregado
+  setTitleCount();
+  toggleAdminSections();
+}
+
     function renderCounts(){const t=Object.values(state.numbers).filter(v=>v).length; el.taken.textContent=t; el.available.textContent=TOTAL-t;}
     function isPending(no){ return !!Object.values(state.requests).find(r=>r.no===no); }
     function renderGrid(){ el.grid.innerHTML=''; const term=(el.search.value||'').toLowerCase(); for(let i=1;i<=TOTAL;i++){const v=state.numbers[i]; const pending=isPending(i); const d=document.createElement('div'); d.className='num '+(v?'taken':(pending?'pending':'available')); const aliasMini=v? v.alias : (pending? 'Pendiente' : ''); d.innerHTML=`${i}<div class=\"alias-mini\">${aliasMini}</div>`; if(term){const m=(''+i).includes(term)|| (v&&v.alias.toLowerCase().includes(term)); d.style.opacity=m?1:.35;} d.onclick=()=>onNumber(i); el.grid.appendChild(d);} }
