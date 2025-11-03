@@ -136,8 +136,8 @@
     const ADMIN_PIN = '3266'; // Cambia este PIN para abrir el login de admin
 
     // ===== Estado =====
-    const state={numbers:{}, prizes:{p1:"",p2:"",p3:""}, requests:{}, backend:'local', fb:{app:null,db:null,auth:null,ref:null}, user:null, isAdmin:false, adminGate:false, isAdminUI:false};
-    const el={grid:by('grid'), list:by('list'), available:by('available'), taken:by('taken'), alias:by('alias'), search:by('search'), p1:by('p1'), p2:by('p2'), p3:by('p3'), tpl:by('tplItem'), tplReq:by('tplReq'), email:by('email'), password:by('password'), btnLogin:by('btnLogin'), btnGoogle:by('btnGoogle'), btnLogout:by('btnLogout'), authBox:by('authBox'), userBox:by('userBox'), userName:by('userName'), userEmail:by('userEmail'), userPhoto:by('userPhoto'), btnEnable:by('btnEnable'), cfg:by('cfg'), btnQuick:by('btnQuick'), btnExport:by('btnExport'), reqList:by('reqList'), reqCount:by('reqCount'), authArea:by('authArea'), btnAdminGate:by('btnAdminGate')};
+    const state={numbers:{}, prizes:{p1:"",p2:"",p3:"",p4:""}, requests:{}, backend:'local', fb:{app:null,db:null,auth:null,ref:null}, user:null, isAdmin:false, adminGate:false, isAdminUI:false};
+    const el={grid:by('grid'), list:by('list'), available:by('available'), taken:by('taken'), alias:by('alias'), search:by('search'), p1:by('p1'), p2:by('p2'), p3:by('p3'), p4:by('p4'), tpl:by('tplItem'), tplReq:by('tplReq'), email:by('email'), password:by('password'), btnLogin:by('btnLogin'), btnGoogle:by('btnGoogle'), btnLogout:by('btnLogout'), authBox:by('authBox'), userBox:by('userBox'), userName:by('userName'), userEmail:by('userEmail'), userPhoto:by('userPhoto'), btnEnable:by('btnEnable'), cfg:by('cfg'), btnQuick:by('btnQuick'), btnExport:by('btnExport'), reqList:by('reqList'), reqCount:by('reqCount'), authArea:by('authArea'), btnAdminGate:by('btnAdminGate')};
     function by(id){return document.getElementById(id)}
 
     // ===== Local storage =====
