@@ -5,6 +5,81 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Rifa 100 Números — Amaruki (Aprobación por Admin)</title>
   <style>
+
+    /* Estilos generales para la tabla */
+.mobile-table {
+    width: 100%;
+    border-collapse: collapse; /* Colapsa los bordes de la celda */
+    font-family: Arial, sans-serif;
+    margin: 10px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+}
+
+/* Estilos para las celdas (th y td) */
+.mobile-table th, .mobile-table td {
+    padding: 12px; /* Relleno para espacio */
+    text-align: left; /* Alineación del texto */
+    border-bottom: 1px solid #ddd; /* Separador de fila */
+}
+
+/* Encabezados de tabla */
+.mobile-table th {
+    background-color: #f2f2f2; /* Color de fondo para encabezados */
+    color: #333;
+    font-weight: bold;
+    font-size: 0.9em;
+}
+
+/* Filas impares (para mejor legibilidad) */
+.mobile-table tr:nth-child(even) {
+    background-color: #fafafa;
+}
+
+/* Estilos específicos para móviles (viewport menor a 600px) */
+/* Hace que los datos se vean como bloques apilados */
+@media screen and (max-width: 600px) {
+    .mobile-table, .mobile-table thead, .mobile-table tbody, .mobile-table th, .mobile-table td, .mobile-table tr {
+        display: block; /* Muestra todos los elementos de la tabla como bloques */
+    }
+
+    /* Oculta los encabezados originales ya que usaremos atributos de datos */
+    .mobile-table thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+
+    /* Estilo para las filas en móvil */
+    .mobile-table tr {
+        border: 1px solid #ccc;
+        margin-bottom: 10px;
+    }
+
+    /* Estilo para las celdas en móvil */
+    .mobile-table td {
+        border: none; /* Elimina el borde de abajo */
+        border-bottom: 1px solid #eee; /* Borde más sutil entre "pares" de datos */
+        position: relative;
+        padding-left: 50%; /* Espacio para la etiqueta */
+        text-align: right;
+    }
+
+    /* Añade la etiqueta de la columna (tomada del atributo data-label) */
+    .mobile-table td:before {
+        content: attr(data-label);
+        position: absolute;
+        left: 6px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap; /* Evita que el texto de la etiqueta se rompa */
+        font-weight: bold;
+        text-align: left;
+        color: #555;
+    }
+}
+
+
+    
     :root{ --bg:#0b1020; --card:#121a33; --muted:#7f8db2; --accent:#2bb3ff; --accent2:#3ad1a1; --danger:#ff5c7a; --pending:#f3c969 }
     *{box-sizing:border-box}
     body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:#0b1020;color:#e6ecff}
@@ -103,12 +178,7 @@
           <div class="divider"></div>
 
           <table class="mobile-table">
-    <thead>
-        <tr>
-            <th>Etiqueta</th>
-            <th>Valor</th>
-        </tr>
-    </thead>
+  
     <tbody>
         <tr>
             <td data-label="Etiqueta">Nombre</td>
